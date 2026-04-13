@@ -1,0 +1,48 @@
+"""Generic main program file"""
+
+import os
+
+from campus_python import Campus
+from campus_python.errors import NotFoundError
+import flask
+from campus import flask_campus
+from campus.auth.oauth_proxy import __all__ as INTEGRATIONS_LIST
+from campus_python.errors import AuthenticationError
+from campus.model import User
+
+app = flask.Flask(__name__)
+app.secret_key = os.environ.get("SECRET_KEY")
+
+def debug():
+    """Run to enable debug mode."""
+    app.debug = True
+    print("Running in debug mode!")
+
+client = Campus(timeout=30, mode="server")
+
+login_manager = flask_campus.OAuthLoginManager(
+    campus_client=client,
+    default_endpoint="home"
+) # Using default parameters
+  # Default endpoints should be customized to fit the app
+
+login_manager.init_app(app)
+
+@app.get("/")
+def index():
+    """The landing page for users who are not signed into the application yet."""
+    return flask.render_template("index.html")
+
+@app.get("/home")
+@login_manager.login_required
+def home():
+    """Home page. Requires the user to be logged in already."""
+    user: User = flask.g.user
+
+    return flask.render_template('home.html', user=user)
+
+
+if __name__ == '__main__':
+    debug()
+    app.run(host="0.0.0.0", port=5000)
+    

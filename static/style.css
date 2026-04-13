@@ -1,0 +1,56 @@
+/* Stylesheet used by all pages. */
+/* Based on stylesheet from V1*/
+
+body {
+	font: 400 16px 'Lato', sans-serif;
+	line-height: 1.8;
+	color: #fff;
+  background-color: #6b7a8f;
+}
+
+.footer {
+    text-align: center;
+}
+
+/* wrapper for content that's in the middle of the screen */
+.centered-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  text-align: center;
+}
+
+h1 {
+	font: 200 63px 'Roboto Condensed', sans serif;
+	letter-spacing: -2px;
+	text-align: center;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font: 800 18px 'Lato', sans-serif;
+  line-height: 1.2 !important;
+  letter-spacing: 4px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+h4 {
+	font-size: 12px !important;
+	line-height: 1.42857143 !important;
+	letter-spacing: 2px;
+}
+
+.div-center {
+  margin: auto;
+}
+
+a {
+  font-size: 14px !important;
+  line-height: 1.8 !important;
+  color: white;
+  position: relative;
+}
