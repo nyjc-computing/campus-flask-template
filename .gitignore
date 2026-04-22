@@ -90,3 +90,8 @@ token.json
 
 # Dev containers (optional - remove if you want to track these)
 .devcontainer/devcontainer.env
+
+# Claude Code
+## Allow settings.json for project-wide configuration
+## Ignore settings.local.json to allow setting env and other personal preferences
+.claude/settings.local.json
