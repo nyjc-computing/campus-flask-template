@@ -5,7 +5,7 @@ description = "Campus Flask Template"
 authors = [""]
 
 [tool.poetry.dependencies]
-python = ">=3.11.0,<3.12"
+python = ">=3.11.0,<3.13"
 
 # Client library dependencies (minimal for HTTP requests)
 flask = "^3.0.0"
